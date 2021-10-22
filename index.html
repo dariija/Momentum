@@ -11,6 +11,7 @@
 <body>
   <header class="header">
     <div class="player">
+      <audio class="audio" src=""></audio>
       <div class="player-controls">
         <button class="play-prev player-icon"></button>
         <button class="play player-icon"></button>
@@ -19,7 +20,7 @@
       <ul class="play-list"></ul>
     </div>
     <div class="weather">
-      <input type="text" class="city" />
+      <input type="text" class="city" value="Minsk"/>
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">
@@ -49,9 +50,13 @@
       <div class="author"></div>
     </div>
   </footer>
-  <!-- <script src="js/script.js"></script> -->
+  
+  <script src="js/script.js"></script>
   <script src="js/clock_calendar.js"></script>
+  <script src="js/weather.js"></script>
   <script src="js/greeting.js"></script>
   <script src="js/background-image.js"></script>
+  <!-- <script type='module' src="js/audio-player.js"></script> -->
+
 </body>
 </html>
