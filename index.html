@@ -57,6 +57,7 @@
         <div class="humidity"></div>
       </div>
     </header>
+
     <main class="main">
       <div class="slider-icons">
         <button class="slide-prev slider-icon"></button>
@@ -66,15 +67,103 @@
       <date class="date"></date>
       <div class="greeting-container">
         <span class="greeting"></span>
-        <input type="text" class="name" placeholder="[Enter your name]" />
+        <input type="text" class="name" placeholder="[Enter name]" />
       </div>
     </main>
+
     <footer class="footer">
-      <button class="change-quote"></button>
-      <div>
-        <div class="quote"></div>
-        <div class="author"></div>
+      <button class="settings-button settings-icon"></button>
+      <div class="settings-menu fadeOut">
+        <div class="settings">
+          <nav class="settings__navigation">
+            <ul class="navigation">
+              <li class="navigation__item navigation__general-section">General</li>
+              <li class="navigation__item navigation__photos-section">Photos</li>
+              <li class="navigation__item navigation__language-section">Language</li>
+            </ul>
+          </nav>
+          <div class="settings-section">
+            <div class="general-section active-section">
+              <header class="settings-section__header">
+                <h3 class="settings-section__header-title">General</h3>
+                <p class="settings-section__header-text">Customize your dashboard</p>
+              </header>
+              <div class="settings-section__content">
+                <p class="settings-section__text">Show:</p>
+                <label class="settings-item">
+                  <input type="checkbox" name="time" checked> Time
+                </label>
+                <label class="settings-item">
+                  <input type="checkbox" name="date" checked> Date
+                </label>
+                <label class="settings-item">
+                  <input type="checkbox" name="greeting" checked> Greeting
+                </label>
+                <label class="settings-item">
+                  <input type="checkbox" name="quotes" checked> Quotes
+                </label>
+                <label class="settings-item">
+                  <input type="checkbox" name="weather" checked> Weather
+                </label>
+                <label class="settings-item">
+                  <input type="checkbox" name="audio" checked> Audio Player
+                </label>
+                <label class="settings-item">
+                  <input type="checkbox" name="todolist"> Todolist
+                </label>
+              </div>
+            </div>
+  
+            <div class="photos-section">
+              <header class="settings-section__header">
+                <h3 class="settings-section__header-title">Photos</h3>
+                <p class="settings-section__header-text">Customize your background</p>
+              </header>
+              <div class="settings-section__content">
+                <p class="settings-section__text">Select photo source:</p>
+                <label class="settings-section__photo-item     settings-item">
+                  <input class="" name="photo-src" type="radio" value="github-src" checked> Github
+                </label>
+                <label class="settings-sectione__photo-item     settings-item">
+                  <input class="" name="photo-src" type="radio" value="unsplash-src"> Unsplash
+                </label>
+                <label class="settings-section__photo-item     settings-item">
+                  <input class="" name="photo-src" type="radio" value="flickr-src"> Flickr
+                </label>
+              </div>
+            </div>
+  
+            <div class="language-section">
+              <header class="settings-section__header">
+                <h3 class="settings-section__header-title">Language</h3>
+                <p class="settings-section__header-text">Customize your display language</p>
+              </header>
+              <div class="settings-section__content">
+                <p class="settings-section__text">Select language:</p>
+                <label class="settings-section__language-item     settings-item">
+                  <input class="" name="language" type="radio" value="en" checked> English
+                </label>
+                <label class="settings-section__language-item     settings-item">
+                  <input class="" name="language" type="radio" value="ru"> Russian
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="quote-container">
+        <button class="change-quote"></button>
+        <div>
+          <div class="quote"></div>
+          <div class="author"></div>
+        </div>  
+      </div>
+
+      <div class="todo">
+        ToDo
+      </div>
+
     </footer>
     
     <script src="js/script.js"></script>
@@ -84,6 +173,8 @@
     <script src="js/background-image.js"></script>
     <script src="js/quotes-widget.js"></script>
     <script type='module' src="js/audio-player.js"></script>
+    <script src="js/settings.js"></script>
+
   </div>
 </body> 
 </html>
