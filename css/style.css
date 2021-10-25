@@ -14,7 +14,7 @@ ul, ol {
 }
 
 body {
-  min-width: 480px;
+  min-width: 320px;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
@@ -545,5 +545,162 @@ input[type=range]::-webkit-slider-thumb {
   .name {
     font-size: 32px;
     padding: 5px;
+  }
+}
+
+@media (max-width: 550px) {
+
+  .settings {
+    flex-direction: column;
+
+    width: 250px;
+    height: 400px;
+  }
+
+  .settings__navigation {
+    width: 100%;
+    height: auto;
+  }
+
+  .settings-section {
+    width: 100%;
+  }
+
+  .navigation {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .header {
+    padding: 10px;
+
+    flex-direction: column;
+    gap: 10px 0;
+  }
+
+  .main {
+    min-height: 200px;
+    padding: 10px;
+  }
+
+  .time {
+    min-height: 55px;
+    margin-bottom: 0;
+
+    font-size: 45px;
+  }
+
+  .date {
+    min-height: 21px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .greeting-container {
+    font-size: 18px;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .player {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0 auto;
+  }
+
+  .player__header {
+    margin-bottom: 0px;
+
+    justify-content: space-evenly;
+  }
+
+  .play-list {
+    display: none;
+  }
+
+  .player__track-name {
+    font-size: 16px;
+  }
+
+  .player__track-duration {
+    font-size: 10px;
+  }
+
+  .player-controls {
+    width: 35%;
+  }
+
+  .player-icon, .slider-icon, .change-quote, .settings-icon {
+    width: 21px;
+    height: 21px;
+    background-size: 21px 21px;
+  }
+
+  .play {
+    width: 28px;
+    height: 28px;
+    background-size: 28px 28px;
+  }
+
+  .sound {
+    width: 14px;
+    height: 14px;
+    background-size: 14px 14px;
+  }
+
+  .weather {
+    min-height: 130px;
+    font-size: 12px;
+  }
+
+  .weather-icon {
+    font-size: 32px;
+  }
+
+  .city {
+    width: 130px;
+  }
+
+  .footer {
+    min-height: 100px;
+    padding: 10px;
+
+    flex-wrap: wrap;
+  }
+
+  .quote-container {
+    font-size: 9px;
+
+    order: 1;
+    width: 100%;
+  }
+
+  .quote {
+    min-height: 20px;
+  }
+
+  .change-quote {
+    margin-bottom: 10px;
+
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+  }
+
+  .settings-button {
+    order: 2;
+  }
+
+  .todo {
+    order: 3;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .header {
+    align-items: normal;
   }
 }
