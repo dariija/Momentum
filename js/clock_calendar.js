@@ -5,15 +5,25 @@ function showTime() {
     let currentDatetime = new Date();
     let currentTime = currentDatetime.toLocaleTimeString();
     clock.textContent = currentTime;
-    showDate();
+    showDate(state.language);
 
-    setTimeout(showTime, 1000)
+    // setTimeout(showTime, 1000)
 };
 
-function showDate() {
+function showDate(lang) {
     let currentDatetime = new Date();
-    let options = {weekday: 'long', month: 'long', day: 'numeric'};
-    let currentDate = currentDatetime.toLocaleDateString(['ru-RU', 'en-US', 'en-Br'], options);
+    let options;
+    let locale;
+
+    if (lang === 'en') {
+        locale = 'en-US';
+        options = {weekday: 'long', month: 'long', day: 'numeric'};
+    } else {
+        locale = 'ru-RU';
+        options = {weekday: 'long', day: 'numeric', month: 'long'};
+    }
+
+    let currentDate = currentDatetime.toLocaleDateString(locale, options);
     calendar.textContent = currentDate;
 };
 

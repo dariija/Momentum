@@ -4,8 +4,8 @@ const quoteText = document.querySelector('.quote'),
 
 let randomNumberQuote;
 
-async function getQuote() {
-    let request = await fetch('/js/quotes.json');
+async function getQuote(lang) {
+    let request = await fetch(`/js/quotes-${lang}.json`);
     let quotes = await request.json();
 
     randomNumberQuote = getRandomNumber(0, quotes.length - 1);
@@ -14,6 +14,13 @@ async function getQuote() {
 }
 
 changeQuoteButton.addEventListener('click', function() {
-    getQuote();
+    getQuote(state.language);
 });
-getQuote() 
+
+getQuote(state.language) ;
+
+
+// ?????? ------------------------------------
+// function translateQuotes(lang) {
+//     getQuote(lang);
+// }

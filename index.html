@@ -11,17 +11,8 @@
 <body>
   <div class="container">
     <header class="header">
-      <!-- <div class="player">
-        <audio class="audio" src=""></audio>
-        <div class="player-controls">
-          <button class="play-prev player-icon"></button>
-          <button class="play player-icon"></button>
-          <button class="play-next player-icon"></button>
-        </div>
-        <ul class="play-list"></ul>
-      </div> -->
-
-      <div class="player-container">
+      
+      <div class="player-container fadeOut fadeIn">
         <div class="player">
           <div class="player__header">
             <p class="player__track-name">Aqua Caelestis</p>
@@ -45,7 +36,7 @@
         </div>
       </div>
 
-      <div class="weather">
+      <div class="weather fadeOut fadeIn">
         <input type="text" class="city" value="Minsk"/>
         <i class="weather-icon owf"></i>
         <div class="weather-error"></div>
@@ -63,9 +54,9 @@
         <button class="slide-prev slider-icon"></button>
         <button class="slide-next slider-icon"></button>
       </div>
-      <time class="time"></time>
-      <date class="date"></date>
-      <div class="greeting-container">
+      <time class="time fadeOut fadeIn"></time>
+      <date class="date fadeOut fadeIn"></date>
+      <div class="greeting-container fadeOut fadeIn">
         <span class="greeting"></span>
         <input type="text" class="name" placeholder="[Enter name]" />
       </div>
@@ -91,26 +82,26 @@
               <div class="settings-section__content">
                 <p class="settings-section__text">Show:</p>
                 <label class="settings-item">
-                  <input type="checkbox" name="time" checked> Time
+                  <input class="checkbox-time" type="checkbox" name="time" checked> <span>Time</span>
                 </label>
                 <label class="settings-item">
-                  <input type="checkbox" name="date" checked> Date
+                  <input class="checkbox-date" type="checkbox" name="date" checked> <span>Date</span>
                 </label>
                 <label class="settings-item">
-                  <input type="checkbox" name="greeting" checked> Greeting
+                  <input class="checkbox-greeting" type="checkbox" name="greeting" checked> <span>Greeting</span>
                 </label>
                 <label class="settings-item">
-                  <input type="checkbox" name="quotes" checked> Quotes
+                  <input class="checkbox-quotes" type="checkbox" name="quotes" checked> <span>Quotes</span>
                 </label>
                 <label class="settings-item">
-                  <input type="checkbox" name="weather" checked> Weather
+                  <input class="checkbox-weather" type="checkbox" name="weather" checked> <span>Weather</span>
                 </label>
                 <label class="settings-item">
-                  <input type="checkbox" name="audio" checked> Audio Player
+                  <input class="checkbox-audio" type="checkbox" name="player" checked> <span>Audio Player</span>
                 </label>
-                <label class="settings-item">
-                  <input type="checkbox" name="todolist"> Todolist
-                </label>
+                <!-- <label class="settings-item">
+                  <input class="checkbox-todolist" type="checkbox" name="todolist"> Todolist
+                </label> -->
               </div>
             </div>
   
@@ -122,13 +113,18 @@
               <div class="settings-section__content">
                 <p class="settings-section__text">Select photo source:</p>
                 <label class="settings-section__photo-item     settings-item">
-                  <input class="" name="photo-src" type="radio" value="github-src" checked> Github
+                  <input class="" name="photo-src" type="radio" value="github" checked> <span>Github</span>
                 </label>
                 <label class="settings-sectione__photo-item     settings-item">
-                  <input class="" name="photo-src" type="radio" value="unsplash-src"> Unsplash
+                  <input class="" name="photo-src" type="radio" value="unsplash"> <span>Unsplash</span>
                 </label>
                 <label class="settings-section__photo-item     settings-item">
-                  <input class="" name="photo-src" type="radio" value="flickr-src"> Flickr
+                  <input class="" name="photo-src" type="radio" value="flickr"> <span>Flickr</span>
+                </label>
+
+                <label class="settings-item">
+                  <span>Find by tag: </span>
+                  <input class="tag" name="photo-tag" type="text" value=""> 
                 </label>
               </div>
             </div>
@@ -136,15 +132,15 @@
             <div class="language-section">
               <header class="settings-section__header">
                 <h3 class="settings-section__header-title">Language</h3>
-                <p class="settings-section__header-text">Customize your display language</p>
+                <p class="settings-section__header-text">Change language</p>
               </header>
               <div class="settings-section__content">
                 <p class="settings-section__text">Select language:</p>
                 <label class="settings-section__language-item     settings-item">
-                  <input class="" name="language" type="radio" value="en" checked> English
+                  <input class="" name="language" type="radio" value="en" checked> <span>English</span>
                 </label>
                 <label class="settings-section__language-item     settings-item">
-                  <input class="" name="language" type="radio" value="ru"> Russian
+                  <input class="" name="language" type="radio" value="ru"> <span>Russian</span>
                 </label>
               </div>
             </div>
@@ -152,7 +148,7 @@
         </div>
       </div>
 
-      <div class="quote-container">
+      <div class="quote-container fadeOut fadeIn">
         <button class="change-quote"></button>
         <div>
           <div class="quote"></div>
@@ -163,9 +159,9 @@
       <div class="todo">
         ToDo
       </div>
-
     </footer>
-    
+
+    <script src="js/settings.js"></script>
     <script src="js/script.js"></script>
     <script src="js/clock_calendar.js"></script>
     <script src="js/weather.js"></script>
@@ -173,7 +169,6 @@
     <script src="js/background-image.js"></script>
     <script src="js/quotes-widget.js"></script>
     <script type='module' src="js/audio-player.js"></script>
-    <script src="js/settings.js"></script>
 
   </div>
 </body> 
