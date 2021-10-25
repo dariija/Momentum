@@ -40,7 +40,8 @@ const generalSectionHeader = document.querySelector('.general-section > .setting
 
 const generalSectionText = document.querySelector('.general-section > .settings-section__content > .settings-section__text'),
       photosSectionText = document.querySelector('.photos-section > .settings-section__content > .settings-section__text'),
-      languagesSectionText = document.querySelector('.language-section > .settings-section__content > .settings-section__text');      
+      languagesSectionText = document.querySelector('.language-section > .settings-section__content > .settings-section__text'),
+      photosSectionTag = document.querySelector('.find-tag');    
     
 const generalSectionWidgets = document.querySelectorAll('.general-section > .settings-section__content > .settings-item > span'),
       photosSectionSelect = document.querySelectorAll('.photos-section > .settings-section__content > .settings-item > span'),
@@ -51,36 +52,95 @@ const choiceLanguages = document.querySelectorAll('input[type="radio"][name="lan
       checkboxes = document.querySelectorAll('input[type="checkbox"]'),
       photoTags = document.querySelector('.tag');
 
+
+const timeWidget = document.querySelector('.time'),
+      dateWidget = document.querySelector('.date'),
+      greetingWidget = document.querySelector('.greeting-container'),
+      quoteWidget = document.querySelector('.quote-container'),
+      weatherWidget =document.querySelector('.weather'),
+      playerWidget  = document.querySelector('.player-container'),
+      todoWidget = document.querySelector('.todo-container');
+
+let widgets = [timeWidget, dateWidget, greetingWidget, quoteWidget, weatherWidget, playerWidget, todoWidget];
+
 let state = {
     language: 'en',
     photoSource: 'github',
     tags: '',
-    widgets: {
-        time: document.querySelector('.time'),
-        date: document.querySelector('.date'),
-        greeting: document.querySelector('.greeting-container'),
-        quotes: document.querySelector('.quote-container'),
-        weather: document.querySelector('.weather'),
-        player: document.querySelector('.player-container'),
-    },
+    widgets: ['time', 'date', 'greeting', 'quotes',' weather', 'player']
 };
 
+setData();
+
+//-----
+choiceLanguages.forEach(function(choice) {
+    choice.addEventListener('change', () => {
+        localStorage.setItem(`${choice.name}`, choice.value);
+    })
+});
+
+choicePhotoSource.forEach( function(choice) {
+    choice.addEventListener('change', () => {
+        localStorage.setItem(`${choice.name}`, choice.value);
+    })
+});
+
+// checkboxes.forEach( function(checkbox) {
+//     checkbox.addEventListener('change', () => {
+//         if (checkbox.checked) {
+//             localStorage.setItem(`${checkbox.name}`, true);
+//         } else {
+//             localStorage.setItem(`${checkbox.name}`, false);
+//         }
+//     })
+// });
+
+//-----
+
+function setData() {
+    choiceLanguages.forEach( function(choice) {
+        if (choice.value === localStorage.getItem(`${choice.name}`)) {
+            choice.checked = true;
+            state.language = localStorage.getItem(`${choice.name}`);
+            translateMenu(state.language);
+        }
+    });
+
+    choicePhotoSource.forEach( function(choice) {
+        if (choice.value === localStorage.getItem(`${choice.name}`)) {
+            choice.checked = true;
+            state.photoSource = localStorage.getItem(`${choice.name}`);
+        }
+    });
+
+    // checkboxes.forEach( function(checkbox) {
+    //     if (localStorage.getItem(`${checkbox.name}`) === 'true') {
+    //         checkbox.checked = true;
+    //     } else  checkbox.checked = false;
+    // });
+};
+
+//------
+
 choiceLanguages.forEach(function(input) {
-    input.addEventListener('change', () => changeLanguage(input.value))
+    input.addEventListener('change', () => {
+        changeLanguage(input.value);
+    })
 });
 
 choicePhotoSource.forEach( function(input) {
     input.addEventListener('change', () => changePhotoSource(input.value))
 });
 
-checkboxes.forEach( function(checkbox) {
-    checkbox.addEventListener('change', () => showWidget(checkbox.name))
+photoTags.addEventListener('change', () => changeBackgroundTag(photoTags.value));
+
+
+checkboxes.forEach( function(checkbox, index) {
+    checkbox.addEventListener('change', () => showWidget(checkbox.name, index))
 });
 
-photoTags.addEventListener('change', () => changeBackgroundTag(photoTags.value))
-
-function showWidget(widgetName) {
-    state.widgets[`${widgetName}`].classList.toggle('fadeIn');
+function showWidget(widgetName, index) {
+    widgets[index].classList.toggle('fadeIn');
 }
 
 function changeLanguage(lang) {
@@ -112,12 +172,13 @@ function translateMenu(lang) {
                 general: {
                     header: ['Общие', 'Настройте свою панель управления'],
                     text: 'Показать:',
-                    widgets: ['Время', 'Дата', 'Приветствие', 'Цитаты', 'Погода', 'Аудиоплеер']
+                    widgets: ['Время', 'Дата', 'Приветствие', 'Цитаты', 'Погода', 'Аудиоплеер', 'Список дел']
                 },
                 photos: {
                     header: ['Фотографии', 'Настройте свой фон'],
                     text: 'Выберите источник фотографий:',
-                    select: ['Github', 'Unsplash', 'Flickr']
+                    select: ['Github', 'Unsplash', 'Flickr'],
+                    tag: 'Найти по тегу:'
                 },
                 language: {
                     header: ['Язык', 'Изменить язык приложения'],
@@ -133,12 +194,13 @@ function translateMenu(lang) {
                 general: {
                     header: ['General', 'Customize your dashboard'],
                     text: 'Show:',
-                    widgets: ['Time', 'Date', 'Greeting', 'Quotes', 'Weather', 'Audio Player']
+                    widgets: ['Time', 'Date', 'Greeting', 'Quotes', 'Weather', 'Audio Player', 'Todo-list']
                 },
                 photos: {
                     header: ['Photos', 'Customize your background'],
                     text: 'Select photo source:',
-                    select: ['Github', 'Unsplash', 'Flickr']
+                    select: ['Github', 'Unsplash', 'Flickr'],
+                    tag: 'Find by tag:'
                 },
                 language: {
                     header: ['Language', 'Change application language'],
@@ -177,8 +239,9 @@ function translateMenu(lang) {
         widget.textContent = menuTranslation[lang].section.photos.select[index];
     });
 
+    photosSectionTag.textContent = menuTranslation[lang].section.photos.tag;
+
     languagesSectionSelect.forEach( function(widget, index) {
         widget.textContent = menuTranslation[lang].section.language.select[index];
     });
 }
-

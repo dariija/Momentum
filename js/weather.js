@@ -32,19 +32,9 @@ async function getWeather(lang) {
 
         // city.value = `${data.name}`;
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-        weatherTemperature.textContent = `${Math.floor(data.main.temp)}°C`;
+        weatherTemperature.textContent = `${Math.round(data.main.temp)}°C`;
         weatherDescription.textContent = `${ data.weather[0].description}`;
-        weatherWind.textContent = `${weatherTranslation[lang][0]}: ${Math.floor(data.wind.speed)} m/s`;
-        weatherHumidity.textContent = `${weatherTranslation[lang][1]}: ${Math.floor(data.main.humidity)}%`;
+        weatherWind.textContent = `${weatherTranslation[lang][0]}: ${Math.round(data.wind.speed)} m/s`;
+        weatherHumidity.textContent = `${weatherTranslation[lang][1]}: ${Math.round(data.main.humidity)}%`;
     }
 }
-
-// ?????? ------------------------------------
-// function translateWeather(lang) {
-//     let weatherTranslation = {
-//         ru : ['Скорость ветра', 'Влажность'],
-//         en : ['Wind speed', 'Humidity'],
-//     };
-
-//     getWeather(lang);
-// }

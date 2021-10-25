@@ -5,9 +5,8 @@ function showTime() {
     let currentDatetime = new Date();
     let currentTime = currentDatetime.toLocaleTimeString();
     clock.textContent = currentTime;
-    showDate(state.language);
 
-    // setTimeout(showTime, 1000)
+    setTimeout(showTime, 1000)
 };
 
 function showDate(lang) {
@@ -28,3 +27,4 @@ function showDate(lang) {
 };
 
 showTime();
+showDate(state.language);

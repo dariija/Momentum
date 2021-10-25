@@ -507,9 +507,139 @@ input[type=range]::-webkit-slider-thumb {
   font-style: italic;
 }
 
-.todo {
+.todo-button {
   align-self:flex-end;
 }
+
+
+/* --------------- ToDo list ---------------*/
+
+.todo-container {
+  width: 500px;
+  /* height: 500px; */
+  min-height: 350px;
+  padding: 20px;
+
+  /* display: flex;
+  flex-direction: column; */
+
+  position: absolute;
+  bottom: 7%;
+  right: 20px;
+
+  color: #000000;
+  background-color: #fff;
+  box-shadow: 0 0 10px #000000;
+  border-radius: 10px;
+  
+  overflow: hidden;
+  z-index: 1;
+}
+
+.todo {
+  max-width: 300px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo__header {
+  /* min-width: 200px; */
+  width: 100%;
+  margin-bottom: 15px;
+  /* border-bottom: 1px solid #00000045; */
+}
+
+.todo__title {
+  margin-bottom: 2px;
+}
+
+.todo__input {
+  margin-bottom: 10px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.todo-task {
+  /* max-width: 200px; */
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-task__add {
+  /* width: 270px;  */
+  width: 100%;
+  margin-right: 10px;
+}
+
+.todo-task__add-button {
+  width: 27px;
+  height: 27px;
+  
+  background-image: url(../assets/svg/add.svg);
+  background-size: 27px 27px;
+}
+
+.todo-list {
+  width: 100%;
+}
+
+.todo-list__item {
+  width: 100%;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 20px;
+
+  text-align: start;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.todo-list__item-control {
+  min-width: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-list__item-checkbox {
+  cursor: pointer;
+}
+
+.todo-list__item-delete {
+  width: 13px;
+  height: 13px;
+
+  background-image: url(../assets/svg/delete.svg);
+  background-size: 13px 13px;
+}
+
 
 /* ---------- Effects ------------ */
 
@@ -547,6 +677,7 @@ input[type=range]::-webkit-slider-thumb {
     padding: 5px;
   }
 }
+
 
 @media (max-width: 550px) {
 
@@ -693,7 +824,12 @@ input[type=range]::-webkit-slider-thumb {
     order: 2;
   }
 
-  .todo {
+  .todo-container {
+    width: 250px;
+    /* height: 400px; */
+  }
+
+  .todo-button {
     order: 3;
   }
 
