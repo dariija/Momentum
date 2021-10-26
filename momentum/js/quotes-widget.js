@@ -5,7 +5,7 @@ const quoteText = document.querySelector('.quote'),
 let randomNumberQuote;
 
 async function getQuote(lang) {
-    let request = await fetch(`/js/quotes-${lang}.json`);
+    let request = await fetch(`./js/quotes-${lang}.json`);
     let quotes = await request.json();
 
     randomNumberQuote = getRandomNumber(0, quotes.length - 1);
