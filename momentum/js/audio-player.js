@@ -115,7 +115,7 @@ function changeVolume() {
 }
 
 function updateTrackRange() {
-    trackDurationRange.value = audio.currentTime/audio.duration * 100;
+    trackDurationRange.value = audio.currentTime/audio.duration * 100 || 0;
     trackCurrentTime.textContent = countCurrentTime();
 }
 
