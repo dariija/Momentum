@@ -145,7 +145,8 @@ body {
 .player-icon,
 .slider-icon,
 .change-quote,
-.settings-icon {
+.settings-icon,
+.todo-button-icon {
   width: 32px;
   height: 32px;
   background-size: 32px 32px;
@@ -162,14 +163,16 @@ body {
 .player-icon:hover,
 .slider-icon:hover,
 .change-quote:hover,
-.settings-icon:hover {
+.settings-icon:hover,
+.todo-button-icon:hover {
   opacity: 1;
 }
 
 .player-icon:active,
 .slider-icon:active,
 .change-quote:active,
-.settings-icon:active  {
+.settings-icon:active,
+.todo-button-icon:active {
   border: 0;
   outline: 0;  
   transform: scale(1.1);
@@ -511,6 +514,14 @@ input[type=range]::-webkit-slider-thumb {
   align-self:flex-end;
 }
 
+.todo-button {
+  width: 50px;
+  height: 50px;
+
+  background-image: url(../assets/svg/todo.svg);
+  background-size: 100%;
+  position: relative;
+}
 
 /* --------------- ToDo list ---------------*/
 
@@ -763,7 +774,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 35%;
   }
 
-  .player-icon, .slider-icon, .change-quote, .settings-icon {
+  .player-icon, .slider-icon, .change-quote, .settings-icon, .todo-button-icon {
     width: 21px;
     height: 21px;
     background-size: 21px 21px;
@@ -831,6 +842,9 @@ input[type=range]::-webkit-slider-thumb {
 
   .todo-button {
     order: 3;
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
   }
 
 }
