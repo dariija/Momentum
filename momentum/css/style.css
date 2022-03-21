@@ -1,0 +1,818 @@
+@font-face {
+  font-family: 'Arial-MT';
+  src: url("../assets/fonts/Arial-MT.woff"); /* Путь к файлу со шрифтом */
+ }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: center/cover, rgba(0, 0, 0, 0.5);
+
+  background-blend-mode: multiply;
+  transition: background-image 1s ease-in-out;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 220px;  
+  padding: 20px;
+}
+
+/* ------------ Player ------------ */
+
+.player {
+  max-width: 300px;
+  padding: 10px;
+
+  background-color: #00000080;
+  box-shadow: 0 0 10px #000000;
+  border: solid 1px #0000004a;
+  border-radius: 10px;
+}
+
+.player__header {
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 0px;
+}
+
+.player__track-name {
+  width: 100%;
+  font-size: 24px;
+}
+
+.player__track-duration {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 14px;
+}
+
+.track-duration {
+  width: 75%;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 45%;
+}
+
+.play-list {
+  text-align: left;
+}
+
+.play-item {
+  position: relative;
+  padding: 5px;
+  padding-left: 20px;
+  list-style: none;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
+
+  display: flex;
+}
+
+.play-item:hover {
+  opacity: 1;
+}
+
+.play-item::before {
+  content: "";  
+  width: 18px;
+  height: 18px;
+  margin-right: 15px;
+
+  background-image: url("../assets/svg/play.svg");
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+
+  cursor: pointer;
+}
+
+.play-item_pause::before {
+  background-image: url("../assets/svg/pause.svg");
+}
+
+.item-active {
+  color: #C5B358;
+}
+
+.player-icon,
+.slider-icon,
+.change-quote,
+.settings-icon,
+.todo-button-icon {
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;  
+}
+
+.player-icon:hover,
+.slider-icon:hover,
+.change-quote:hover,
+.settings-icon:hover,
+.todo-button-icon:hover {
+  opacity: 1;
+}
+
+.player-icon:active,
+.slider-icon:active,
+.change-quote:active,
+.settings-icon:active,
+.todo-button-icon:active {
+  border: 0;
+  outline: 0;  
+  transform: scale(1.1);
+}
+
+.play {
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  background-image: url("../assets/svg/play.svg");
+}
+
+.pause {
+  background-image: url("../assets/svg/pause.svg");
+}
+
+.play-prev {
+  background-image: url("../assets/svg/play-prev.svg");
+}
+
+.play-next {
+  background-image: url("../assets/svg/play-next.svg");
+}
+
+.player__sound {
+  display: flex;
+  align-items: center;
+}
+.sound {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+
+  background-image: url('../assets/svg/volume.svg');
+  background-size: 20px 20px;
+}
+
+.mute {
+  background-image: url('../assets/svg/mute.svg');
+}
+
+.sound-range {
+  width: 90px;
+}
+
+input[type=range]{
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 5px;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
+}
+
+input[type=range]:focus {
+  outline: none; 
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 15px;
+  width: 8px;
+  border-radius: 3px;
+  background:#867621;
+
+  cursor: pointer;
+  margin-top: -4px;
+}
+
+/* ------------ End Player ------------ */
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  row-gap: 5px;
+  width: 180px;
+  min-height: 180px;  
+  text-align: left;
+}
+
+.weather-error {
+  margin-top: -10px;
+}
+
+.description-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.weather-icon {
+  font-size: 44px;
+}
+
+.city {
+  width: 170px;
+  height: 34px;
+  padding: 5px;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;  
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+}
+
+.city::placeholder {  
+  font-size: 20px;
+  color: #fff;
+  opacity: .6;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 260px;  
+  padding: 20px;
+}
+
+.slider-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  cursor: pointer;
+}
+
+.slide-prev {
+  left: 20px;
+  background-image: url("../assets/svg/slider-prev.svg");
+}
+
+.slide-next {
+  right: 20px;
+  background-image: url("../assets/svg/slider-next.svg");
+}
+
+.time {
+  min-height: 124px;
+  margin-bottom: 10px;
+  font-family: 'Arial-MT';
+  font-size: 100px;
+  letter-spacing: -4px;  
+}
+
+.date {
+  min-height: 28px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.greeting-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-items: center;
+  min-height: 48px;
+  width: 100vw;
+  font-size: 40px;
+}
+
+.greeting {
+  flex: 1;  
+  padding: 10px;
+  text-align: right;
+}
+
+.name {
+  flex: 1;
+  max-width: 50%;
+  padding: 10px;
+  font-size: 40px;
+  text-align: left;
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.name::placeholder {
+  color: #fff;
+  opacity: .6;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 20px;
+  align-items: center;
+  width: 100%;
+  min-height: 160px;  
+  padding: 20px;
+}
+
+/* ---------- Settings ------------ */
+
+.settings-button {
+  background-image: url(../assets/svg/settings.svg);
+
+  position: relative;
+
+  align-self:flex-end;
+}
+
+.settings-menu {
+  position: absolute;
+  bottom: 7%;
+  left: 20px;
+
+  box-shadow: 0 0 10px #000000;
+  border-radius: 10px;
+
+  overflow: hidden;
+  z-index: 1;
+}
+
+.settings {
+  width: 500px;
+  height: 500px;
+  display: flex;
+
+  background-color: #fff;
+  color: #000000;
+}
+
+.settings__navigation {
+  width: 30%;
+  height: 100%;
+  padding: 10px;
+
+  background-color: rgb(148 167 29 / 38%);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navigation__item {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.settings-section {
+  width: 70%;
+  padding: 20px 20px;
+
+  text-align: start;
+  overflow: auto;
+}
+
+.settings-section__header {
+  margin-bottom: 15px;
+
+  border-bottom: 1px solid #00000045;
+}
+
+.settings-section__header-title {
+  margin-bottom: 2px;
+}
+
+.settings-section__header-text {
+  margin-bottom: 10px;
+}
+
+.settings-section__text {
+  margin-bottom: 10px;;
+}
+
+.settings-item {
+  margin-bottom: 10px;;
+
+  display: block;
+  cursor: pointer;
+}
+
+.general-section,
+.photos-section,
+.language-section {
+  display: none;
+}
+
+.active-section {
+  display: block;
+}
+
+.change-quote {
+  margin-bottom: 30px;
+  background-image: url("../assets/svg/reload.svg");  
+}
+
+.quote {
+  min-height: 32px;
+  max-width: 1000px;
+}
+
+.author {
+  min-height: 20px;
+  font-style: italic;
+}
+
+.todo-button {
+  align-self:flex-end;
+}
+
+.todo-button {
+  width: 50px;
+  height: 50px;
+
+  background-image: url(../assets/svg/todo.svg);
+  background-size: 100%;
+  position: relative;
+}
+
+/* --------------- ToDo list ---------------*/
+
+.todo-container {
+  width: 500px;
+  min-height: 350px;
+  padding: 20px;
+
+  position: absolute;
+  bottom: 7%;
+  right: 20px;
+
+  color: #000000;
+  background-color: #fff;
+  box-shadow: 0 0 10px #000000;
+  border-radius: 10px;
+  
+  overflow: hidden;
+  z-index: 1;
+}
+
+.todo {
+  max-width: 300px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo__header {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.todo__title {
+  margin-bottom: 2px;
+}
+
+.todo__input {
+  margin-bottom: 10px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.todo-task {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-task__add {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.todo-task__add-button {
+  width: 27px;
+  height: 27px;
+  
+  background-image: url(../assets/svg/add.svg);
+  background-size: 27px 27px;
+}
+
+.todo-list {
+  width: 100%;
+}
+
+.todo-list__item {
+  width: 100%;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 20px;
+
+  text-align: start;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.todo-list__item-control {
+  min-width: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-list__item-checkbox {
+  cursor: pointer;
+}
+
+.todo-list__item-delete {
+  width: 13px;
+  height: 13px;
+
+  background-image: url(../assets/svg/delete.svg);
+  background-size: 13px 13px;
+}
+
+
+/* ---------- Effects ------------ */
+
+.fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+/* ---------- ------------ */
+
+
+@media (max-width: 768px) {
+  .time {
+    min-height: 80px;
+    font-size: 72px;    
+  }
+
+  .greeting-container {
+    min-height: 40px;
+    font-size: 32px;
+  }
+
+  .greeting {
+    padding: 5px;
+  }
+
+  .name {
+    font-size: 32px;
+    padding: 5px;
+  }
+}
+
+
+@media (max-width: 550px) {
+
+  .settings {
+    flex-direction: column;
+
+    width: 250px;
+    height: 400px;
+  }
+
+  .settings__navigation {
+    width: 100%;
+    height: auto;
+  }
+
+  .settings-section {
+    width: 100%;
+  }
+
+  .navigation {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .header {
+    padding: 10px;
+
+    flex-direction: column;
+    gap: 10px 0;
+  }
+
+  .main {
+    min-height: 200px;
+    padding: 10px;
+  }
+
+  .time {
+    min-height: 55px;
+    margin-bottom: 0;
+
+    font-size: 45px;
+  }
+
+  .date {
+    min-height: 21px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .greeting-container {
+    font-size: 18px;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .player {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0 auto;
+  }
+
+  .player__header {
+    margin-bottom: 0px;
+
+    justify-content: space-evenly;
+  }
+
+  .play-list {
+    display: none;
+  }
+
+  .player__track-name {
+    font-size: 16px;
+  }
+
+  .player__track-duration {
+    font-size: 10px;
+  }
+
+  .player-controls {
+    width: 35%;
+  }
+
+  .player-icon, .slider-icon, .change-quote, .settings-icon, .todo-button-icon {
+    width: 21px;
+    height: 21px;
+    background-size: 21px 21px;
+  }
+
+  .play {
+    width: 28px;
+    height: 28px;
+    background-size: 28px 28px;
+  }
+
+  .sound {
+    width: 14px;
+    height: 14px;
+    background-size: 14px 14px;
+  }
+
+  .weather {
+    min-height: 130px;
+    font-size: 12px;
+  }
+
+  .weather-icon {
+    font-size: 32px;
+  }
+
+  .city {
+    width: 130px;
+  }
+
+  .footer {
+    min-height: 100px;
+    padding: 10px;
+
+    flex-wrap: wrap;
+  }
+
+  .quote-container {
+    font-size: 9px;
+
+    order: 1;
+    width: 100%;
+  }
+
+  .quote {
+    min-height: 20px;
+  }
+
+  .change-quote {
+    margin-bottom: 10px;
+
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+  }
+
+  .settings-button {
+    order: 2;
+  }
+
+  .todo-container {
+    width: 250px;
+  }
+
+  .todo-button {
+    order: 3;
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    align-items: normal;
+  }
+}

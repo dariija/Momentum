@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Momentum</title>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      
+      <div class="player-container fadeOut fadeIn">
+        <div class="player">
+          <div class="player__header">
+            <p class="player__track-name">Aqua Caelestis</p>
+            <div class="player__track-duration">
+              <span class="track-current-time">0:00</span>
+              <audio class="audio" src=""></audio>
+              <input class="track-duration" type="range" min="0" max="100" value="0">
+              <span class="track-total-time">0:00</span>
+            </div>
+            <div class="player-controls">
+              <button class="play-prev player-icon"></button>
+              <button class="play player-icon"></button>
+              <button class="play-next player-icon"></button>
+            </div>
+            <div class="player__sound">
+              <button class="sound player-icon"></button>
+              <input class="sound-range" type="range" min="0" max="100" value="100">
+            </div>
+          </div>
+          <ul class="play-list"></ul>
+        </div>
+      </div>
+
+      <div class="weather fadeOut fadeIn">
+        <input type="text" class="city"/>
+        <i class="weather-icon owf"></i>
+        <div class="weather-error"></div>
+        <div class="description-container">
+          <span class="temperature"></span>
+          <span class="weather-description"></span>
+        </div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="slider-icons">
+        <button class="slide-prev slider-icon"></button>
+        <button class="slide-next slider-icon"></button>
+      </div>
+      <time class="time fadeOut fadeIn"></time>
+      <date class="date fadeOut fadeIn"></date>
+      <div class="greeting-container fadeOut fadeIn">
+        <span class="greeting"></span>
+        <input type="text" class="name" placeholder="[Enter name]" />
+      </div>
+    </main>
+
+    <footer class="footer">
+      <button class="settings-button settings-icon"></button>
+      <div class="settings-menu fadeOut">
+        <div class="settings">
+          <nav class="settings__navigation">
+            <ul class="navigation">
+              <li class="navigation__item navigation__general-section">General</li>
+              <li class="navigation__item navigation__photos-section">Photos</li>
+              <li class="navigation__item navigation__language-section">Language</li>
+            </ul>
+          </nav>
+          <div class="settings-section">
+            <div class="general-section active-section">
+              <header class="settings-section__header">
+                <h3 class="settings-section__header-title">General</h3>
+                <p class="settings-section__header-text">Customize your dashboard</p>
+              </header>
+              <div class="settings-section__content">
+                <p class="settings-section__text">Show:</p>
+                <label class="settings-item">
+                  <input class="checkbox-time" type="checkbox" name="timeWidget" checked> <span>Time</span>
+                </label>
+                <label class="settings-item">
+                  <input class="checkbox-date" type="checkbox" name="dateWidget" checked> <span>Date</span>
+                </label>
+                <label class="settings-item">
+                  <input class="checkbox-greeting" type="checkbox" name="greetingWidget" checked> <span>Greeting</span>
+                </label>
+                <label class="settings-item">
+                  <input class="checkbox-quotes" type="checkbox" name="quoteWidget" checked> <span>Quotes</span>
+                </label>
+                <label class="settings-item">
+                  <input class="checkbox-weather" type="checkbox" name="weatherWidget" checked> <span>Weather</span>
+                </label>
+                <label class="settings-item">
+                  <input class="checkbox-audio" type="checkbox" name="playerWidget" checked> <span>Audio Player</span>
+                </label>
+              </div>
+            </div>
+  
+            <div class="photos-section">
+              <header class="settings-section__header">
+                <h3 class="settings-section__header-title">Photos</h3>
+                <p class="settings-section__header-text">Customize your background</p>
+              </header>
+              <div class="settings-section__content">
+                <p class="settings-section__text">Select photo source:</p>
+                <label class="settings-section__photo-item     settings-item">
+                  <input class="" name="photo-src" type="radio" value="github" checked> <span>Github</span>
+                </label>
+                <label class="settings-sectione__photo-item     settings-item">
+                  <input class="" name="photo-src" type="radio" value="unsplash"> <span>Unsplash</span>
+                </label>
+                <label class="settings-section__photo-item     settings-item">
+                  <input class="" name="photo-src" type="radio" value="flickr"> <span>Flickr</span>
+                </label>
+
+                <label class="settings-item">
+                  <span class="find-tag">Find by tag: </span>
+                  <input class="tag" name="photo-tag" type="text" value=""> 
+                </label>
+              </div>
+            </div>
+  
+            <div class="language-section">
+              <header class="settings-section__header">
+                <h3 class="settings-section__header-title">Language</h3>
+                <p class="settings-section__header-text">Change language</p>
+              </header>
+              <div class="settings-section__content">
+                <p class="settings-section__text">Select language:</p>
+                <label class="settings-section__language-item     settings-item">
+                  <input class="" name="language" type="radio" value="en" checked> <span>English</span>
+                </label>
+                <label class="settings-section__language-item     settings-item">
+                  <input class="" name="language" type="radio" value="ru"> <span>Russian</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-container fadeOut fadeIn">
+        <button class="change-quote"></button>
+        <div>
+          <div class="quote"></div>
+          <div class="author"></div>
+        </div>  
+      </div>
+
+    <button class="todo-button todo-button-icon"></button>
+    <div class="todo-container fadeOut">
+      <div class="todo">
+        <header class="todo__header">
+          <h3 class="todo__title">ToDo</h3>
+
+          <div class="todo-task">
+            <input class="todo-task__add" id="taskDesk" type="text" >
+            <button class="todo-task__add-button todo-icon"></button>
+          </div>
+        </header>
+
+        <ul class="todo-list"></ul>
+      </div>
+    </div>
+    </footer>
+
+    <script src="js/locale-storage.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/clock_calendar.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/greeting.js"></script>
+    <script src="js/background-image.js"></script>
+    <script src="js/quotes-widget.js"></script>
+    <script type='module' src="js/audio-player.js"></script>
+    <script src="js/todo-list.js"></script>
+    <script src="js/selfrating.js"></script>
+
+  </div>
+</body> 
+</html>
