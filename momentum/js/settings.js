@@ -85,16 +85,6 @@ choicePhotoSource.forEach( function(choice) {
     })
 });
 
-// checkboxes.forEach( function(checkbox) {
-//     checkbox.addEventListener('change', () => {
-//         if (checkbox.checked) {
-//             localStorage.setItem(`${checkbox.name}`, true);
-//         } else {
-//             localStorage.setItem(`${checkbox.name}`, false);
-//         }
-//     })
-// });
-
 //-----
 
 function setData() {
@@ -112,12 +102,6 @@ function setData() {
             state.photoSource = localStorage.getItem(`${choice.name}`);
         }
     });
-
-    // checkboxes.forEach( function(checkbox) {
-    //     if (localStorage.getItem(`${checkbox.name}`) === 'true') {
-    //         checkbox.checked = true;
-    //     } else  checkbox.checked = false;
-    // });
 };
 
 //------

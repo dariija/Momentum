@@ -18,9 +18,3 @@ changeQuoteButton.addEventListener('click', function() {
 });
 
 getQuote(state.language) ;
-
-
-// ?????? ------------------------------------
-// function translateQuotes(lang) {
-//     getQuote(lang);
-// }

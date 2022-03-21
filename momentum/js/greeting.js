@@ -11,10 +11,7 @@ function getTimeOfDay() {
 function showGreeting(lang) {
     let timeOfDay = getTimeOfDay();
     greeting.textContent = `Good ${timeOfDay}, `;
-
     if (!(lang === 'en')) greetingTranslate(lang)
-
-    // setTimeout(() => showGreeting(lang), 1000);
 }
 
 function greetingTranslate(lang) {
